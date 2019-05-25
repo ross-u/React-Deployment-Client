@@ -12,10 +12,10 @@ class ProjectList extends Component {
   };
 
   getAllProjects = () => {
-    axios.get(`http://localhost:5000/api/projects`)
-    .then((apiResponse) => {
-      this.setState({ listOfProjects: apiResponse.data })
-    })
+    axios.get(`${process.env.REACT_APP_API_URL}api/projects`, { withCredentials: true})
+      .then((apiResponse) => {
+        this.setState({ listOfProjects: apiResponse.data })
+      })
   }
 
   componentDidMount() {

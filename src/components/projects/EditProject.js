@@ -18,7 +18,8 @@ class EditProject extends Component {
     const { _id } = this.props.theProject;
   
     axios.put(
-      `http://localhost:5000/api/projects/${_id}`,
+      `${process.env.REACT_APP_API_URL}api/projects/${_id}`,
+      { withCredentials: true},
       { title, description }
     )
     .then( () => {
